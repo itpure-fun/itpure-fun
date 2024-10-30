@@ -1,0 +1,9 @@
+{
+    "name": "User",
+    "label": "User",
+    "description": "avenue user",
+    "installed": true,
+    "enabled": true,
+    "version": "1.0",
+    "order": 0
+}
