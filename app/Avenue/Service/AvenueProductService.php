@@ -58,7 +58,7 @@ class AvenueProductService extends AbstractService
             throw new \Exception('产品已存在');
         }
 
-        $uploadInfo = $this->systemUploadFileService->mapper->getFileInfoByHash($data['logo']);
+        $uploadInfo = $this->systemUploadFileService->mapper->getFileInfoByHash($data['logo_hash']);
         $data['logo'] = $uploadInfo->url ?? '';
 
         $tags = $data['tags'] ?? '';
@@ -79,7 +79,7 @@ class AvenueProductService extends AbstractService
             throw new \Exception('产品已存在');
         }
 
-        $uploadInfo = $this->systemUploadFileService->mapper->getFileInfoByHash($data['logo']);
+        $uploadInfo = $this->systemUploadFileService->mapper->getFileInfoByHash($data['logo_hash']);
         $data['logo'] = $uploadInfo->url ?? '';
 
         $tags = $data['tags'];

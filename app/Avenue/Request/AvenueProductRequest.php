@@ -38,8 +38,8 @@ class AvenueProductRequest extends MineFormRequest
             'title' => 'required',
             //描述 验证
             'desc' => 'required',
-            //logo 验证
-            'logo' => 'required',
+            //logo hash
+            'logo_hash' => 'required',
             //链接 验证
             'link' => 'required|url',
             //分类id 验证
@@ -62,8 +62,8 @@ class AvenueProductRequest extends MineFormRequest
             'title' => 'required',
             //描述 验证
             'desc' => 'required',
-            //logo 验证
-            'logo' => 'required',
+            //logo hash
+            'logo_hash' => 'required',
             //链接 验证
             'link' => 'required|url',
             //分类id 验证
@@ -88,6 +88,7 @@ class AvenueProductRequest extends MineFormRequest
             'title' => '名称',
             'desc' => '描述',
             'logo' => 'logo',
+            'logo_hash' => 'logo hash',
             'link' => '链接',
             'cate_id' => '分类id',
             'tags' => '标签,多个','隔开： 如,1,2,3,',

@@ -40,8 +40,7 @@ class TestCommand extends HyperfCommand
     public function handle()
     {
         // 目标URL
-//        $url = 'https://www.avenue.wang';
-//        $url = 'https://www.hoiolo.cn/';
+//        $url = 'https://itpure.fun/';
         $url = 'http://localhost:3000';
 
         // 初始化cURL会话

@@ -45,6 +45,9 @@ class SystemUserService extends AbstractService implements UserServiceInterface
     #[Inject]
     protected MineRequest $request;
 
+    #[Inject]
+    protected SystemUploadFileService $sysUploadFileService;
+
     protected ContainerInterface $container;
 
     protected SystemMenuService $sysMenuService;
@@ -311,6 +314,11 @@ class SystemUserService extends AbstractService implements UserServiceInterface
             $data['routers'] = $this->sysMenuService->mapper->getRoutersByIds($ids);
             $data['codes'] = $this->sysMenuService->mapper->getMenuCode($ids);
         }
+
+        /*if (!empty($data['user']['avatar'])) {
+            $file = $this->sysUploadFileService->readByHash($data['user']['avatar']);
+            $data['user']['avatar'] = $file->url ?? '';
+        }*/
 
         return $data;
     }

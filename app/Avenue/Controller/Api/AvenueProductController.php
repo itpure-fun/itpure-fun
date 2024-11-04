@@ -4,10 +4,12 @@
 namespace App\Avenue\Controller\Api;
 
 use App\Package\Verify;
+use App\User\Middleware\JWTAuthMiddleware;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\RequestMapping;
 use Mine\MineController;
+use Hyperf\HttpServer\Annotation\Middleware;
 
 #[Controller(prefix: 'v1/avenue/product')]
 class AvenueProductController extends MineController
@@ -49,6 +51,7 @@ class AvenueProductController extends MineController
     }
 
     #[RequestMapping(path: "submit", methods: "post")]
+    #[Middleware(JWTAuthMiddleware::class)]
     public function submit()
     {
         try {

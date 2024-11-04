@@ -169,3 +169,25 @@ if (! function_exists('has_role')) {
         return in_array($code, $roles);
     }
 }
+
+if (! function_exists('get_oss_domain')) {
+    /**
+     * 获取oss domain
+     *
+     * @param $type
+     * @return mixed|string
+     */
+    function get_oss_domain($type)
+    {
+        switch ($type) {
+            case 2:
+                //ali
+                $domain = env('OSS_BUCKET_DOMAIN', '');
+                break;
+            default:
+                $domain = '';
+                break;
+        }
+        return $domain;
+    }
+}

@@ -65,7 +65,7 @@ class SystemUploadFileService extends AbstractService
             throw new NormalStatusException('获取文件Hash失败', 500);
         }
         $data = $this->mineUpload->upload($uploadedFile, $config);
-        $data['url'] = $this->getOssDomain($this->mineUpload->getStorageMode()) . $data['url'];
+        //$data['url'] = $this->getOssDomain($this->mineUpload->getStorageMode()) . $data['url'];
         if ($this->save($data)) {
             return $data;
         }
@@ -154,25 +154,5 @@ class SystemUploadFileService extends AbstractService
             });
         }
         return $collect;
-    }
-
-    /**
-     * 获取oss domain
-     *
-     * @param $type
-     * @return mixed|string
-     */
-    public function getOssDomain($type)
-    {
-        switch ($type) {
-            case 2:
-                //ali
-                $domain = env('OSS_BUCKET_DOMAIN', '');
-                break;
-            default:
-                $domain = '';
-                break;
-        }
-        return $domain;
     }
 }

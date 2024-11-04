@@ -54,6 +54,7 @@ class SystemUploadFileMapper extends AbstractMapper
             $model && $model->forceDelete();
             return null;
         }
+        $model->url = filter_var($model->url, FILTER_VALIDATE_URL) ? $model->url : get_oss_domain($model->storage_mode) . $model->url;
         return $model;
     }
 
