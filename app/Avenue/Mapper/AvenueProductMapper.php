@@ -45,11 +45,15 @@ class AvenueProductMapper extends AbstractMapper
             $query->where('id', '=', $params['id']);
         }
 
-        // 名称
+        // 名称/描述
         if (isset($params['title']) && filled($params['title'])) {
-            $query->where('title', 'like', '%'.$params['title'].'%');
+            $query->where(function($query) use ($params) {
+                $query->where('title', 'like', '%'.$params['title'].'%')
+                    ->orWhere('desc', 'like', '%'.$params['title'].'%')
+                    ->orWhere('link', 'like', '%'.$params['title'].'%');
+            });
         }
-
+//        var_dump();exit;
         // 描述
         if (isset($params['desc']) && filled($params['desc'])) {
             $query->where('desc', 'like', '%'.$params['desc'].'%');
@@ -79,6 +83,13 @@ class AvenueProductMapper extends AbstractMapper
         if (isset($params['tag_id']) && $params['tag_id'] > 0) {
             $query->whereHas('productTag', function ($query) use ($params) {
                 $query->where('tag_id', $params['tag_id']);
+            });
+        }
+
+        //标签 - 后台
+        if (!empty($params['tags'])) {
+            $query->whereHas('productTag', function ($query) use ($params) {
+                $query->whereIn('tag_id', $params['tags']);
             });
         }
 

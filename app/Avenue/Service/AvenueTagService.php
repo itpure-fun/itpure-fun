@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace App\Avenue\Service;
 
+use App\Avenue\Mapper\AvenueProductMapper;
 use App\Avenue\Mapper\AvenueTagMapper;
 use Mine\Abstracts\AbstractService;
 
@@ -25,9 +26,12 @@ class AvenueTagService extends AbstractService
      */
     public $mapper;
 
-    public function __construct(AvenueTagMapper $mapper)
+    public $productMapper;
+
+    public function __construct(AvenueTagMapper $mapper, AvenueProductMapper $productMapper)
     {
         $this->mapper = $mapper;
+        $this->productMapper = $productMapper;
     }
 
     public function getPageList(?array $params = null, bool $isScope = true): array
@@ -39,9 +43,22 @@ class AvenueTagService extends AbstractService
             $list = $list->get();
         } else {
             $flag = true;
-            $list = $list->paginate();
+            $list = $list->paginate((int)$params['pageSize'] ?? 10);
         }
 
         return $flag ? $this->mapper->setPaginate($list) : $list->toArray();
+    }
+
+    public function delete(array $ids): bool
+    {
+        //验证标签下是否存在产品
+        $exists = $this->productMapper->model::whereHas('productTag', function ($query) use ($ids) {
+            $query->whereIn('tag_id', $ids);
+        })->exists();
+        if ($exists) {
+            throw new \Exception('标签下存在产品，删除失败！');
+        }
+        $this->mapper->model::destroy($ids);
+        return true;
     }
 }

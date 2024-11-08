@@ -30,7 +30,7 @@ class AvenueProductController extends MineController
                 ['tag_id', ''],
                 ['sort', 1],    //1最新，2最热
                 ['status', '1'],
-                ['limit', 36],
+                ['pageSize', 36],
             ], $this->request);
             $list = $this->service->getPageList($params, false);
             return $this->success($list);

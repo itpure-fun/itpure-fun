@@ -43,7 +43,7 @@ class AvenueProductService extends AbstractService
         $list = $this->mapper->listQuerySetting($params, $isScope)
             ->with('productCate')
             ->with('productTag')
-            ->paginate($params['limit'] ?? 15);
+            ->paginate((int)$params['pageSize'] ?? 10);
         $list->each(function ($item) {
             $item->tags = array_column($item->productTag->toArray(), 'id');
             $item->cate_text = $item->productCate->title ?? '';
