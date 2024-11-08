@@ -1,10 +1,6 @@
 version: '3'
 services:
-  # 在后端根目录建立mine-ui目录，把前端文件复制过来。
-  # 容器内访问宿主机的地址用：host.docker.internal
-  # 宿主机也可以在hosts文件添加：127.0.0.1 host.docker.internal
-  # mine-ui的.env.development文件127.0.0.1替换为host.docker.internal
-  nginx-frontend:
+  nginx:
     image: nginx:latest
     environment:
       - "TIMEZONE=Asia/Shanghai"
@@ -28,9 +24,8 @@ services:
       - ./front/web:/opt/www
     ports:
       - "3000:3000"
-    entrypoint: ["node", ".output/server/index.mjs"]
+    entrypoint: ["node", "server/index.mjs"]
 
-  # mineadmin的.env的mysql、redis如果连接到宿主机，地址用：host.docker.internal
   # 如果是连接到docker内服务，则用服务名称，如:redis
   hyperf:
     image: hyperf/hyperf:8.2-alpine-v3.19-swoole

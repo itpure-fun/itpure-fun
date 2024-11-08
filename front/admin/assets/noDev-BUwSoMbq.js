@@ -1,0 +1,1 @@
+import{_ as t,r as o,o as s,h as r,w as a,f as c}from"./index-CeUf7hzR.js";const n={};function _(f,l){const e=o("a-result");return s(),r(e,{status:"info",title:"说明"},{subtitle:a(()=>[c(" 应用市场只在开发环境开放使用。 ")]),_:1})}const u=t(n,[["render",_]]);export{u as default};

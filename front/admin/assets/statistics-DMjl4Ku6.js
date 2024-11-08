@@ -1,0 +1,1 @@
+import{o as s,c as e,l as t}from"./index-CeUf7hzR.js";const c="/admin/assets/welcome-CD1dPAa3.svg",o={class:"flex justify-center bg-white h-[86vh]"},a=t("img",{src:c,class:"w-[100vh]"},null,-1),_=[a],m={__name:"statistics",setup(n){return(i,r)=>(s(),e("div",o,_))}};export{m as default};
