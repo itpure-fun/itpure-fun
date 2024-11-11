@@ -4883,19 +4883,19 @@ const _routes = [
     name: "about",
     path: "/about",
     meta: __nuxt_page_meta$5 || {},
-    component: () => import('./about-q3uugNsB.mjs')
+    component: () => import('./about-DzCuPtHo.mjs')
   },
   {
     name: "auth-callback",
     path: "/auth/callback",
     meta: __nuxt_page_meta$4 || {},
-    component: () => import('./callback-CYzIS8Sg.mjs')
+    component: () => import('./callback-B4Zjpj4k.mjs')
   },
   {
     name: "changelog",
     path: "/changelog",
     meta: __nuxt_page_meta$3 || {},
-    component: () => import('./changelog-CFh9PB_u.mjs')
+    component: () => import('./changelog-C-ptbRpO.mjs')
   },
   {
     name: "details-id",
@@ -4905,19 +4905,19 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import('./index-DJBd0g44.mjs')
+    component: () => import('./index-C8JqWtwc.mjs')
   },
   {
     name: "privacy",
     path: "/privacy",
     meta: __nuxt_page_meta$2 || {},
-    component: () => import('./privacy-CWSsHMuH.mjs')
+    component: () => import('./privacy-CyMKm3KO.mjs')
   },
   {
     name: "terms",
     path: "/terms",
     meta: __nuxt_page_meta$1 || {},
-    component: () => import('./terms-D7Dltcoo.mjs')
+    component: () => import('./terms-B_AcXmbb.mjs')
   },
   {
     name: "user",
@@ -7430,9 +7430,9 @@ const plugins = [
   svgicon_WxC0AOUlIy
 ];
 const layouts = {
-  default: () => import('./default-7XNf-g89.mjs'),
+  default: () => import('./default-D8gi-up0.mjs'),
   empty: () => import('./empty-CB2gAi1s.mjs'),
-  privacy: () => import('./privacy-CJPMbpmn.mjs')
+  privacy: () => import('./privacy-Bed8RY54.mjs')
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",

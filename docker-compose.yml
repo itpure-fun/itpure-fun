@@ -12,6 +12,8 @@ services:
       - ./docker/nginx-frontend/servers:/etc/nginx/conf.d
       - ./docker/nginx-frontend/config:/etc/nginx/config
       - ./docker/nginx-frontend/cert:/etc/nginx/cert
+    networks:
+      - itpure-fun
 
   #nuxt
   nuxt:
@@ -25,6 +27,8 @@ services:
     ports:
       - "3000:3000"
     entrypoint: ["node", "server/index.mjs"]
+    networks:
+      - itpure-fun
 
   # 如果是连接到docker内服务，则用服务名称，如:redis
   hyperf:
@@ -42,6 +46,8 @@ services:
     volumes:
       - ./:/opt/www
     entrypoint: ["php", "watch", "-c"]
+    networks:
+      - itpure-fun
 
   # 没有将volumes映射出来，需要持久化自行百度一下
 
@@ -74,3 +80,7 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=mineadmin
       - RABBITMQ_DEFAULT_PASS=123456
+
+networks:
+  itpure-fun:
+    driver: bridge

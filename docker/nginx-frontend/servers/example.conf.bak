@@ -69,7 +69,7 @@ server {
 
 server {
     listen 7701;
-    root /usr/share/nginx/html/admin;
+    root /usr/share/nginx/html/admin/dist;
     try_files $uri $uri/ /index.html;
     index index.html;
 }
