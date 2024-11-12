@@ -12,7 +12,7 @@
 
 ## 介绍
 
-> 待完善...
+> 主要用于收录实用的程序员开发工具，资源和相关的产品等
 
 ## 功能展示
 
@@ -20,23 +20,35 @@
 
 ## 安装 & 部署
 
-### Docker部署
+### 快速安装
 
-> 待完善...
+1. 拉取代码
 
-### 手动部署
+```
+git clone https://github.com/itpure-fun/itpure-fun.git
+```
 
-> 待完善...
+2. 步骤
 
-## 项目功能
+```shell
+# 进入项目目录
+cd ./itpure-fun
 
-> 待完善...
+# 创建和配置`.env`, 没有特殊设置可以不用修改
+cp .env.example .env
 
-## 其他
+# 安装composer包
+comopser install -vvv
 
-Q: 我可以参与开发 `itpure-fun` 吗？
+# 执行
+docker-compose up -d nginx hyperf nuxt mysql
+```
 
-A: 当然可以，随时欢迎提交 `PR`
+4. 访问
+
+> http://localhost/
+
+### 部署
 
 
   

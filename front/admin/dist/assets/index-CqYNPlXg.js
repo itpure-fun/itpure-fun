@@ -1,0 +1,1 @@
+import{_ as s,k as t,o as a,c}from"./index-Dj8CxrJe.js";const r=["src"],o={name:"systemInterface"},_=Object.assign(o,{setup(n){const e=t("http://127.0.0.1:9501/swagger");return(f,l)=>(a(),c("iframe",{src:e.value,frameborder:"0",width:"100%",class:"frame"},null,8,r))}}),m=s(_,[["__scopeId","data-v-76c836df"]]);export{m as default};

@@ -21,4 +21,3 @@ public
 docker/nginx-frontend/cert/*
 docker/nginx-frontend/servers/itpure*
 composer.phar
-front/

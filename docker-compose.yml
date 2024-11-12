@@ -12,13 +12,13 @@ services:
       - ./docker/nginx-frontend/servers:/etc/nginx/conf.d
       - ./docker/nginx-frontend/config:/etc/nginx/config
       - ./docker/nginx-frontend/cert:/etc/nginx/cert
+    restart: always
     networks:
-      - itpure-fun
+      - net-itpure-fun
 
   #nuxt
   nuxt:
     image: node:lts-alpine3.19
-    restart: always
     environment:
       - "TIMEZONE=Asia/Shanghai"
     working_dir: "/opt/www"
@@ -27,13 +27,13 @@ services:
     ports:
       - "3000:3000"
     entrypoint: ["node", "server/index.mjs"]
+    restart: always
     networks:
-      - itpure-fun
+      - net-itpure-fun
 
   # 如果是连接到docker内服务，则用服务名称，如:redis
   hyperf:
     image: hyperf/hyperf:8.2-alpine-v3.19-swoole
-    restart: always
     environment:
       - "TIMEZONE=Asia/Shanghai"
       - "APP_PROJECT=hyperf"
@@ -46,8 +46,9 @@ services:
     volumes:
       - ./:/opt/www
     entrypoint: ["php", "watch", "-c"]
+    restart: always
     networks:
-      - itpure-fun
+      - net-itpure-fun
 
   # 没有将volumes映射出来，需要持久化自行百度一下
 
@@ -58,17 +59,22 @@ services:
       - "explicit_defaults_for_timestamp=true"
       - "lower_case_table_names=1"
     volumes:
-      - ./docker/mysql/57/my.cnf:/etc/my.cnf/:ro
-      - ./docker/mysql/57/data:/var/lib/mysql/:rw
-      - ./docker/mysql/57/logs:/var/log/mysql/:rw
+      - ./docker/mysql/8/my.cnf:/etc/my.cnf
+      - ./docker/mysql/8/data:/var/lib/mysql
+      - ./docker/mysql/8/logs:/var/log/mysql
+      - ./docker/mysql/db/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     ports:
       - 3306:3306
-    image: mysql:5.7
+    image: mysql:8
     restart: always
+    networks:
+      - net-itpure-fun
     # command: "--default-authentication-plugin=mysql_native_password"
   redis:
     image: redis
     restart: always
+    networks:
+      - net-itpure-fun
   rabbitmq:
     image: rabbitmq:management
     restart: always
@@ -80,7 +86,8 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=mineadmin
       - RABBITMQ_DEFAULT_PASS=123456
-
+    networks:
+      - net-itpure-fun
 networks:
-  itpure-fun:
+  net-itpure-fun:
     driver: bridge
