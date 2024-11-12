@@ -50,5 +50,9 @@ docker-compose up -d nginx hyperf nuxt mysql
 
 ### 部署
 
+```
+git clone https://github.com/itpure-fun/itpure-fun.git
+```
+
 
   

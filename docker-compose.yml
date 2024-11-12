@@ -84,7 +84,7 @@ services:
       - "15672:15672"
       - "25672:25672"
     environment:
-      - RABBITMQ_DEFAULT_USER=mineadmin
+      - RABBITMQ_DEFAULT_USER=itpurefun
       - RABBITMQ_DEFAULT_PASS=123456
     networks:
       - net-itpure-fun
