@@ -18,9 +18,7 @@
 
 在线站点：<a href="https://itpure.fun" target="_blank">ITPURE.FUN</a>
 
-## 安装 & 部署
-
-### 快速安装
+## 快速安装
 
 1. 拉取代码
 
@@ -50,12 +48,5 @@ docker-compose up -d nginx hyperf nuxt mysql
 4. 访问
 
 > http://localhost/
-
-### 部署
-
-```
-git clone https://github.com/itpure-fun/itpure-fun.git
-```
-
 
   

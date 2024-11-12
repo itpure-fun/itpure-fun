@@ -45,7 +45,6 @@ services:
       - "9503:9503"
     volumes:
       - ./:/opt/www
-    command: ["composer", "install"]
     entrypoint: ["php", "watch", "-c"]
     restart: always
     networks:
