@@ -8,7 +8,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./front/admin:/usr/share/nginx/html/admin
+      - ./${APP_FRONT}/admin:/usr/share/nginx/html/admin
       - ./docker/nginx-frontend/servers:/etc/nginx/conf.d
       - ./docker/nginx-frontend/config:/etc/nginx/config
       - ./docker/nginx-frontend/cert:/etc/nginx/cert
@@ -23,7 +23,7 @@ services:
       - "TIMEZONE=Asia/Shanghai"
     working_dir: "/opt/www"
     volumes:
-      - ./front/web:/opt/www
+      - ./${APP_FRONT}/web:/opt/www
     ports:
       - "3000:3000"
     entrypoint: ["node", "server/index.mjs"]
@@ -45,6 +45,7 @@ services:
       - "9503:9503"
     volumes:
       - ./:/opt/www
+    command: ["composer", "install"]
     entrypoint: ["php", "watch", "-c"]
     restart: always
     networks:

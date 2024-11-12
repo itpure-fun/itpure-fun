@@ -40,6 +40,9 @@ cp .env.example .env
 # 安装composer包
 comopser install -vvv
 
+# 下载前端代码
+git clone https://github.com/itpure-fun/front-local.git
+
 # 执行
 docker-compose up -d nginx hyperf nuxt mysql
 ```
