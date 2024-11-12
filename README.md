@@ -18,35 +18,6 @@
 
 在线站点：<a href="https://itpure.fun" target="_blank">ITPURE.FUN</a>
 
-## 快速安装
+## 部署
 
-1. 拉取代码
-
-```
-git clone https://github.com/itpure-fun/itpure-fun.git
-```
-
-2. 步骤
-
-```shell
-# 进入项目目录
-cd ./itpure-fun
-
-# 创建和配置`.env`, 没有特殊设置可以不用修改
-cp .env.example .env
-
-# 安装composer包
-comopser install -vvv
-
-# 下载前端代码
-git clone https://github.com/itpure-fun/front-local.git
-
-# 执行
-docker-compose up -d nginx hyperf nuxt mysql
-```
-
-4. 访问
-
-> http://localhost/
-
-  
+- Docker Compose部署(推荐) <a href="https://github.com/itpure-fun/itpure-fun-deploy/blob/main/README.md" target="_blank">查看文档</a>
