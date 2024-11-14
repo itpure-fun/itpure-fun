@@ -21,3 +21,35 @@
 ## 部署
 
 - Docker Compose部署(推荐) <a href="https://github.com/itpure-fun/itpure-fun-deploy/blob/main/README.md" target="_blank">查看文档</a>
+
+## 免责声明
+
+本软件不得用于开发违反国家有关政策的相关软件和应用，若因使用本软件造成的一切法律责任均与 `itpure-fun` 无关
+
+## 安装和使用
+
+## 安装使用
+
+- 获取代码
+
+```
+git clone https://github.com/itpure-fun/itpure-fun.git
+```
+- 安装和配置
+
+```
+# 进入目录
+cd itpure-fun 
+
+# 安装
+composer install
+
+# copy配置文件，自行配置
+cp .env.example .env
+```
+
+- 运行
+
+```
+php bin/hyperf.php start
+```
