@@ -26,8 +26,6 @@
 
 本软件不得用于开发违反国家有关政策的相关软件和应用，若因使用本软件造成的一切法律责任均与 `itpure-fun` 无关
 
-## 安装和使用
-
 ## 安装使用
 
 - 获取代码
@@ -41,11 +39,11 @@ git clone https://github.com/itpure-fun/itpure-fun.git
 # 进入目录
 cd itpure-fun 
 
-# 安装
-composer install
-
 # copy配置文件，自行配置
 cp .env.example .env
+
+# 安装
+composer install
 ```
 
 - 运行
@@ -53,3 +51,8 @@ cp .env.example .env
 ```
 php bin/hyperf.php start
 ```
+
+## 感谢
+
+- 管理后台：<a href="https://www.mineadmin.com/" target="_blank">MineAdmin</a>
+- 框架：<a href="https://www.hyperf.io/" target="_blank">hyperf</a> 
